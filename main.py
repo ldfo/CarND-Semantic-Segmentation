@@ -143,6 +143,7 @@ def train_nn(sess, epochs, batch_size, get_batches_fn, train_op, cross_entropy_l
 
     sess.run(tf.global_variables_initializer())
     for epoch in range(epochs):
+        print('Epoch: ', epoch)
         for image, labels in get_batches_fn(batch_size):
             _, loss = sess.run([train_op, cross_entropy_loss], 
                                feed_dict={ input_image: image,
@@ -193,7 +194,7 @@ def run():
         # TODO: Train NN using the train_nn function
 
         # Define Hyperparameters
-        epochs = 3
+        epochs = 5 
         batch_size = 2 
         
         train_nn(sess,
